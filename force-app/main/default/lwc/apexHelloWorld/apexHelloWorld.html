@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Apex Hello World" icon-name="standard:apex">
+        <div class="slds-p-around_medium">
+            <!-- Apex से data display करें -->
+            <div class="slds-box slds-theme_default">
+                <h2 class="slds-text-heading_medium slds-m-bottom_small">
+                    {greetingMessage}
+                </h2>
+                
+                <p class="slds-text-body_regular">
+                    <strong>Server Time:</strong> {serverTime}<br>
+                    <strong>User:</strong> {userName}<br>
+                    <strong>Organization:</strong> {orgName}
+                </p>
+                
+                <div class="slds-m-top_medium">
+                    <lightning-input 
+                        label="Enter your name" 
+                        value={inputName}
+                        onchange={handleNameChange}>
+                    </lightning-input>
+                    
+                    <lightning-button 
+                        label="Get Personalized Greeting" 
+                        variant="brand"
+                        onclick={callApexMethod}
+                        class="slds-m-top_small">
+                    </lightning-button>
+                </div>
+                
+                <!-- Loading Spinner -->
+                <template if:true={isLoading}>
+                    <div class="slds-align_absolute-center slds-m-top_large">
+                        <lightning-spinner 
+                            alternative-text="Loading" 
+                            size="medium">
+                        </lightning-spinner>
+                    </div>
+                </template>
+                
+                <!-- Error Message -->
+                <template if:true={error}>
+                    <div class="slds-notify slds-notify_alert slds-theme_error slds-m-top_medium">
+                        <span class="slds-assistive-text">Error</span>
+                        <span class="slds-icon_container slds-icon-utility-error slds-m-right_xsmall">
+                            <lightning-icon icon-name="utility:error"></lightning-icon>
+                        </span>
+                        <h2>Error: {error}</h2>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+<template>
+<lightning-button label="Add Row" onclick={handleAdd} class="slds-m-bottom_small"></lightning-button>
+<template for:each={records} for:item="rec">
+<div key={rec.Id} class="slds-box slds-m-bottom_small">
+<lightning-input label="Name" value={rec.Name} data-id={rec.Id} onchange={handleChange}></lightning-input>
+<lightning-button label="Delete" onclick={handleDelete} data-id={rec.Id}
+             disabled={isDeleteDisabled}  ></lightning-button>
+</div>
+</template>
+</template>

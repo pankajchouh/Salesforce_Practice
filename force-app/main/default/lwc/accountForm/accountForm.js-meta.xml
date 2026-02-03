@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Account Form</masterLabel>
+    <description>LWC form to create or edit Account records using lightning-record-edit-form.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__Tab</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__UtilityBar</target>
+        <target>lightning__RecordAction</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Account</object>
+            </objects>
+            <properties>
+                <property name="recordId" type="String" label="Record Id (for edit mode)" description="Provide Account Id to put the form in edit mode. Leave blank for create mode."/>
+            </properties>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage,lightning__Tab,lightning__UtilityBar,lightning__FlowScreen">
+            <properties>
+                <property name="recordId" type="String" label="Record Id (optional)" description="Provide Account Id to edit; leave empty to create a new record."/>
+            </properties>
+        </targetConfig>
+        <targetConfig targets="lightning__RecordAction">
+            <actionType>Action</actionType>
+            <objects>
+                <object>Account</object>
+            </objects>
+            <properties>
+                <property name="recordId" type="String" label="Record Id (pre-populated in Record Action)"/>
+            </properties>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

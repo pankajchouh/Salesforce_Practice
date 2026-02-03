@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Hello World" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <h1 class="slds-text-heading_large slds-m-bottom_medium">
+                Hello World from Salesforce LWC!
+            </h1>
+            
+            <p class="slds-text-body_regular slds-m-bottom_medium">
+                This is a basic Lightning Web Component.
+            </p>
+            
+            <lightning-button 
+                label="Click Me" 
+                variant="brand"
+                onclick={handleClick}
+                class="slds-m-top_small">
+            </lightning-button>
+            
+            <p class="slds-text-body_regular slds-m-top_medium">
+                Message: {message}
+            </p>
+        </div>
+    </lightning-card>
+</template>

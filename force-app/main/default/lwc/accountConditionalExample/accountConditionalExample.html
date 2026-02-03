@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Account Filter (Conditional Fetch)">
+
+        <!-- Filter Dropdown -->
+        <lightning-combobox
+            label="Select Industry"
+            value={selectedIndustry}
+            options={industryOptions}
+            onchange={handleIndustryChange}>
+        </lightning-combobox>
+
+        <!-- Button -->
+        <lightning-button
+            label="Search Accounts"
+            onclick={handleSearch}
+            disabled={isButtonDisabled}>
+        </lightning-button>
+
+        <!-- Spinner -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+        </template>
+
+        <!-- No Data -->
+        <template if:true={showNoData}>
+            <p>No Accounts Found</p>
+        </template>
+
+        <!-- Data -->
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                <p key={acc.Id}>
+                    {acc.Name} - {acc.Industry}
+                </p>
+            </template>
+        </template>
+
+    </lightning-card>
+</template>

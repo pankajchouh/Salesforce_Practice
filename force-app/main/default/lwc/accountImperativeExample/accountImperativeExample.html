@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Load Accounts on Button Click">
+
+        <!-- Limit Input -->
+        <lightning-input
+    type="number"
+    label="How many Accounts? (1 to 5 only)"
+    value={limitValue}
+    min="1"
+    max="5"
+    onchange={handleLimitChange}>
+</lightning-input>
+
+
+        <!-- Button -->
+        <lightning-button
+            label="Load Accounts"
+            onclick={handleClick}
+            disabled={isLoading}>
+        </lightning-button>
+
+        <!-- Spinner -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+
+        <!-- Data -->
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                <p key={acc.Id}>
+                    {acc.Name} - {acc.Industry}
+                </p>
+            </template>
+        </template>
+
+    </lightning-card>
+</template>
