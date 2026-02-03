@@ -14,7 +14,7 @@ public with sharing class HelloWorldLWCController {
             response.put('status', 'success');
             response.put('user', UserInfo.getName());
             response.put('orgName', UserInfo.getOrganizationName());
-            
+            //Add this commnet for no external Account and Contact merges 
         } catch (Exception e) {
             response.put('status', 'error');
             response.put('message', 'Error: ' + e.getMessage());
