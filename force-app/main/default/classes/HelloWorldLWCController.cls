@@ -13,6 +13,7 @@ public with sharing class HelloWorldLWCController {
             
             response.put('status', 'success');
             response.put('user', UserInfo.getName());
+            // git add . kar ke check karna hai 
             response.put('orgName', UserInfo.getOrganizationName());
             //Add this commnet for no external Account and Contact merges 
         } catch (Exception e) {
