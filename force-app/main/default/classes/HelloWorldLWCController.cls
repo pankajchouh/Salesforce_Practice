@@ -10,7 +10,7 @@ public with sharing class HelloWorldLWCController {
         
         try {
             response.put('message', 'Hello World from Apex Controller!');
-            response.put('timestamp', Datetime.now().format('yyyy-MM-dd HH:mm:ss'));
+            
             response.put('status', 'success');
             response.put('user', UserInfo.getName());
             response.put('orgName', UserInfo.getOrganizationName());
